@@ -2,7 +2,26 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(4, companies);
-console.log('---- EXAMPLE 4 --- ', 'Put here your function');
+console.log('---- EXAMPLE 4 --- ', findAllUser(companies));
+
+function findAllUser(companies){
+    let a = [];
+    companies.forEach(com => {
+        com['users'].forEach((user) => {
+            user.company = com.name;
+            a.push(user);
+        });
+    });
+
+    return sortByYears(a);
+}
+
+function sortByYears(users){
+    users.sort((a, b) => {
+        return b.age - a.age;
+    });
+    return users;
+}
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
