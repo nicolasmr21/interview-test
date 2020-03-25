@@ -4,16 +4,12 @@ const companies = createAll();
 cleanConsole(1, companies);
 console.log('---- EXAMPLE 1 --- ', solution(companies));
 
-
-
 function solution(companies){
     companies = clearUndefined(companies);
     companies = sortCompaniesByUsersLength(companies);
     companies = sortUsersByName(companies);
     return companies;
 }
-
-
 
 function clearUndefined(companies){
     companies.forEach(element => {

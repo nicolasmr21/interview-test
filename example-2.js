@@ -2,7 +2,21 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(2, companies);
-console.log('---- EXAMPLE 2 --- ', 'Put here your function');
+console.log('---- EXAMPLE 2 --- ', removeByCarAttribute(companies, true));
+
+
+function removeByCarAttribute(companies, hasCar){
+    companies.forEach((com) => {
+        com['users'].forEach((user, index) => {
+            if( user['car'] != hasCar){
+                delete com.users[index];
+            }
+        });
+        com.usersLength = com.users.length;
+    });
+    return companies;
+}
+
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
