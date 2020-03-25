@@ -1,9 +1,27 @@
 import {cleanConsole, createAll} from './data';
+import {solution} from './example-1';
 
 const companies = createAll();
 
-cleanConsole(3, companies);
-console.log('---- EXAMPLE 3 --- ', 'Put here your function');
+cleanConsole(3, solution(companies));
+console.log('---- EXAMPLE 3 --- ', validateCapNames(solution(companies)));
+
+
+function validateCapNames(companies){
+    companies.forEach(com => {
+        com.name = com.name.charAt(0).toUpperCase() + com.name.slice(1);
+        if(com.name.substring(0) != com.name.substring(0).toUpperCase()){
+            return false;
+        }
+        com['users'].forEach((user) => {
+            if( user.firstName.chartAt(0) != user.firstName.chartAt(0).toUpperCase()
+                || user.lastName.chartAt(0) != user.lastName.chartAt(0).toUpperCase()){
+                return false;
+            }
+        });
+    });
+    return true;
+}
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL

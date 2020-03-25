@@ -4,25 +4,25 @@ const companies = createAll();
 cleanConsole(1, companies);
 console.log('---- EXAMPLE 1 --- ', solution(companies));
 
-function solution(companies){
-    companies = clearUndefined(companies);
-    companies = sortCompaniesByUsersLength(companies);
-    companies = sortUsersByName(companies);
+export function solution(companies){
+    clearUndefined(companies);
+    sortCompaniesByUsersLength(companies);
+    sortUsersByName(companies);
     return companies;
 }
 
 function clearUndefined(companies){
-    companies.forEach(element => {
-        element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
-        element['users'].forEach(element => {
-            if( typeof element['firstName'] == 'undefined'){
-                element['firstName'] = " ";
+    companies.forEach(com => {
+        com.name = com.name.charAt(0).toUpperCase() + com.name.slice(1)
+        com['users'].forEach(user => {
+            if( typeof user['firstName'] == 'undefined'){
+                user['firstName'] = " ";
             }
-            if( typeof element['lastName'] == 'undefined'){
-                element['lastName'] = "";
+            if( typeof user['lastName'] == 'undefined'){
+                user['lastName'] = "";
             }
-            element.firstName = element.firstName.charAt(0).toUpperCase() + element.firstName.slice(1)
-            element.firstName = element.lastName.charAt(0).toUpperCase() + element.lastName.slice(1)
+            user.firstName = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)
+            user.firstName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)
         });
     });
 

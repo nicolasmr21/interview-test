@@ -1,4 +1,5 @@
 import {cleanConsole, createAll} from './data';
+
 const companies = createAll();
 
 cleanConsole(2, companies);
