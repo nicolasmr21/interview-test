@@ -2,7 +2,26 @@ import {createAll, cleanConsole} from './data';
 const companies = createAll();
 
 cleanConsole(1, companies);
-console.log('---- EXAMPLE 1 --- ', 'Put here your function');
+console.log('---- EXAMPLE 1 --- ', clearUndefined(companies));
+
+
+function clearUndefined(companies){
+    companies.forEach(element => {
+        element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
+        element['users'].forEach(element => {
+            if( typeof element['firstName'] == 'undefined'){
+                element['firstName'] = " ";
+            }
+            if( typeof element['lastName'] == 'undefined'){
+                element['lastName'] = "";
+            }
+            element.firstName = element.firstName.charAt(0).toUpperCase() + element.firstName.slice(1)
+            element.firstName = element.lastName.charAt(0).toUpperCase() + element.lastName.slice(1)
+        });
+    });
+
+    return companies;
+}
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL

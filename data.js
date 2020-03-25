@@ -11,7 +11,7 @@ const firstName = [
   'Mohamed',
   'Walid',
   'Josiane',
-  undefined,
+  undefined
 ];
 const lastName = [
   'Dupont',
@@ -23,7 +23,7 @@ const lastName = [
   'Wartani',
   'Thoumsi',
   'Angello',
-  undefined,
+  undefined
 ];
 
 const companyNames = [
@@ -51,7 +51,7 @@ function createCompany(name, index) {
     users,
     isOpen: !!createRandomNumber(0, 2),
     usersLength: users.length,
-    id: index,
+    id: index
   };
 }
 
@@ -64,7 +64,7 @@ function createUser(end) {
       lastName: getValue(lastName),
       age: createRandomNumber(10, 120),
       car: !!createRandomNumber(0, 2),
-      id: tab.length,
+      id: tab.length
     });
   }
   return tab;
