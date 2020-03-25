@@ -1,8 +1,18 @@
 import {cleanConsole, createAll} from './data';
+import{findAllUsers} from "./example-4"
 const companies = createAll();
 
 cleanConsole(5, companies);
-console.log('---- EXAMPLE 5 --- ', 'Put here your function');
+console.log('---- EXAMPLE 5 --- ', userStats(findAllUsers(companies)));
+
+function userStats(users){
+    let a = {};
+    a.size = users.length;
+    a.average = (users.reduce(((total, current) => total += current.age) , 0 ))/a.size;
+    a.hasCar = users.filter((a) => a.car == true).length;
+    a.averageWithCar = (users.reduce(((total, current) => current.car ? total += current.age: total) , 0 ))/a.hasCar;
+    return a;
+}
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL

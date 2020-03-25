@@ -2,9 +2,9 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(4, companies);
-console.log('---- EXAMPLE 4 --- ', findAllUser(companies));
+console.log('---- EXAMPLE 4 --- ', findAllUsers(companies));
 
-function findAllUser(companies){
+export function findAllUsers(companies){
     let a = [];
     companies.forEach(com => {
         com['users'].forEach((user) => {

@@ -3,7 +3,23 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(6, companies);
-console.log('---- EXAMPLE 6 --- ', 'Put here your function');
+console.log('---- EXAMPLE 6 --- ', concatenate(companies));
+
+
+export function concatenate(companies){
+  let a = [];
+  companies.forEach(com => {
+      com['users'].forEach((user) => {
+          user.company = com.name;
+          let x = user.lastName+user.firstName+user.age
+          a.push({
+            [x] : user.car 
+          });
+      });
+  });
+
+  return a;
+}
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
