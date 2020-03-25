@@ -2,7 +2,17 @@ import {createAll, cleanConsole} from './data';
 const companies = createAll();
 
 cleanConsole(1, companies);
-console.log('---- EXAMPLE 1 --- ', clearUndefined(companies));
+console.log('---- EXAMPLE 1 --- ', solution(companies));
+
+
+
+function solution(companies){
+    companies = clearUndefined(companies);
+    companies = sortCompaniesByUsersLength(companies);
+    companies = sortUsersByName(companies);
+    return companies;
+}
+
 
 
 function clearUndefined(companies){
@@ -20,6 +30,25 @@ function clearUndefined(companies){
         });
     });
 
+    return companies;
+}
+
+
+function sortCompaniesByUsersLength(companies){
+    companies.sort((a, b) => {
+        return b.usersLength - a.usersLength;
+    });
+    return companies;
+}
+
+
+function sortUsersByName(companies){
+    companies.forEach(element => {
+        element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
+            element['users'].sort((a, b) => {
+                return a.firstName.localeCompare(b.firstName);
+            });
+    });
     return companies;
 }
 
